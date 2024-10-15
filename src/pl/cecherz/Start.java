@@ -2,9 +2,15 @@ package pl.cecherz;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class Start extends Application {
     public final String applicationName = "PigNote";
@@ -15,18 +21,39 @@ public class Start extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-
+    public void start(final Stage primaryStage) {
         primaryStage.setTitle(applicationName);
-        Image image = new Image(iconPath);
 
+        final Image image = new Image(iconPath);
         primaryStage.getIcons().add(image);
 
-        StackPane root = new StackPane();
+        final BorderPane borderPane = new BorderPane();
+        borderPane.setTop(createMenu());
+        borderPane.setCenter(createTextArea());
 
-        Scene scene = new Scene(root, 600.0, 700.0);
+        final Scene mainScene = new Scene(borderPane, 600.0, 700.0);
 
-        primaryStage.setScene(scene);
+        primaryStage.setScene(mainScene);
         primaryStage.show();
+
+    }
+    private MenuBar createMenu() {
+        final Menu menuFile = new Menu("File");
+        MenuItem[] menuItems = {
+                new MenuItem("Open"),
+                new MenuItem("Save")
+        };
+        menuFile.getItems().addAll(menuItems);
+
+        final Menu menuOptions = new Menu("Options");
+        final Menu menuHelp = new Menu("Help");
+
+        final MenuBar menuBar = new MenuBar();
+        menuBar.getMenus().addAll(menuFile, menuOptions, menuHelp);
+
+        return menuBar;
+    }
+    private TextArea createTextArea() {
+        return new TextArea();
     }
 }
