@@ -5,16 +5,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 public class Start extends Application {
     public final String applicationName = "PigNote";
     public final String iconPath = "pl/cecherz/Pig_icon.png";
+    public final String cssPath = "pl/cecherz/style.css";
+    public AppController controller = new AppController();
 
     public static void main(String[] args) {
         launch(args);
@@ -29,10 +28,10 @@ public class Start extends Application {
 
         final BorderPane borderPane = new BorderPane();
         borderPane.setTop(createMenu());
-        borderPane.setCenter(createTextArea());
+        borderPane.setCenter(controller.getTextArea());
 
         final Scene mainScene = new Scene(borderPane, 600.0, 700.0);
-
+        mainScene.getStylesheets().add(cssPath);
         primaryStage.setScene(mainScene);
         primaryStage.show();
 
@@ -40,9 +39,16 @@ public class Start extends Application {
     private MenuBar createMenu() {
         final Menu menuFile = new Menu("File");
         MenuItem[] menuItems = {
+                new MenuItem("New"),
                 new MenuItem("Open"),
                 new MenuItem("Save")
         };
+        menuItems[0].setOnAction(actionEvent -> {
+            controller.newFile();
+        });
+        menuItems[1].setOnAction(actionEvent -> {
+            System.out.println("Open file");
+        });
         menuFile.getItems().addAll(menuItems);
 
         final Menu menuOptions = new Menu("Options");
@@ -52,8 +58,5 @@ public class Start extends Application {
         menuBar.getMenus().addAll(menuFile, menuOptions, menuHelp);
 
         return menuBar;
-    }
-    private TextArea createTextArea() {
-        return new TextArea();
     }
 }
