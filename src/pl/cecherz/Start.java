@@ -9,18 +9,21 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class Start extends Application {
     public final String applicationName = "PigNote";
     public final String iconPath = "pl/cecherz/Pig_icon.png";
     public final String cssPath = "pl/cecherz/style.css";
-    public AppController controller = new AppController();
+    private AppController controller;
 
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(final Stage primaryStage) {
+    public void start(Stage primaryStage) {
+        controller = new AppController(primaryStage);
         primaryStage.setTitle(applicationName);
 
         final Image image = new Image(iconPath);
@@ -47,7 +50,11 @@ public class Start extends Application {
             controller.newFile();
         });
         menuItems[1].setOnAction(actionEvent -> {
-            System.out.println("Open file");
+            try {
+                controller.openFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
         menuFile.getItems().addAll(menuItems);
 
