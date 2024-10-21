@@ -9,13 +9,11 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Start extends Application {
-    public final String applicationName = "PigNote";
-    public final String iconPath = "pl/cecherz/Pig_icon.png";
-    public final String cssPath = "pl/cecherz/style.css";
-    private AppController controller;
+    private GUIController controller;
 
     public static void main(String[] args) {
         launch(args);
@@ -23,10 +21,10 @@ public class Start extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        controller = new AppController(primaryStage);
-        primaryStage.setTitle(applicationName);
+        controller = new GUIController(primaryStage);
+        primaryStage.setTitle(GlobalConstants.APPLICATION_NAME);
 
-        final Image image = new Image(iconPath);
+        final Image image = new Image(GlobalConstants.ICON_PATH);
         primaryStage.getIcons().add(image);
 
         final BorderPane borderPane = new BorderPane();
@@ -34,11 +32,11 @@ public class Start extends Application {
         borderPane.setCenter(controller.getTextArea());
 
         final Scene mainScene = new Scene(borderPane, 600.0, 700.0);
-        mainScene.getStylesheets().add(cssPath);
+        mainScene.getStylesheets().add(GlobalConstants.CSS_PATH);
         primaryStage.setScene(mainScene);
         primaryStage.show();
-
     }
+
     private MenuBar createMenu() {
         final Menu menuFile = new Menu("File");
         MenuItem[] menuItems = {
@@ -51,8 +49,15 @@ public class Start extends Application {
         });
         menuItems[1].setOnAction(actionEvent -> {
             try {
-                controller.openFile();
+                controller.displayTextInWindow();
+            } catch (FileNotFoundException e) {
+                System.out.println("FileNotFoundException");
+                throw new RuntimeException(e);
+            } catch (SecurityException e) {
+                System.out.println("SecurityException");
+                throw new RuntimeException(e);
             } catch (IOException e) {
+                System.out.println("IOException");
                 throw new RuntimeException(e);
             }
         });

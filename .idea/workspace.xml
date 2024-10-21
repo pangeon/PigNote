@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a085ae7-e458-4961-9731-0a8c500ca5e6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pl/cecherz/GUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/cecherz/GlobalConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/cecherz/TextStreamController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/cecherz/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/cecherz/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pl/cecherz/AppController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pl/cecherz/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/cecherz/Start.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -89,5 +93,16 @@
       <updated>1728841868975</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
