@@ -1,9 +1,6 @@
 package pl.cecherz;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class TextStreamController {
@@ -17,6 +14,12 @@ public class TextStreamController {
         while ((line = reader.readLine()) != null) {
             fileContent.append(line).append("\n");
         }
+        reader.close();
         return fileContent.toString();
+    }
+    public static void saveFileContent(String fileName, String fileContent) throws IOException {
+        FileWriter writer = new FileWriter(fileName);
+        writer.write(fileContent);
+        writer.close();
     }
 }

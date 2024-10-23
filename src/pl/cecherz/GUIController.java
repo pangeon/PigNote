@@ -19,7 +19,7 @@ public class GUIController {
         return textArea;
     }
 
-    public void newFile() {
+    public void resetFile() {
         textArea.setText("");
     }
 
@@ -29,6 +29,25 @@ public class GUIController {
 
         String fileContent = TextStreamController.loadFileContent(filepath);
         textArea.setText(fileContent);
+    }
+
+    public void saveTextAreaToFile() throws IOException {
+        File file = getFileExtChooser().showSaveDialog(stage);
+        String textContent = textArea.getText();
+        String fileName = String.valueOf(file);
+        TextStreamController.saveFileContent(fileName, textContent);
+    }
+
+    private FileChooser getFileExtChooser() {
+        FileChooser fileChooser = new FileChooser();
+
+        FileChooser.ExtensionFilter extensionTxtFilter = new FileChooser.ExtensionFilter(
+                "TXT files (*.txt)", "*.txt");
+        FileChooser.ExtensionFilter allFilesFilter = new FileChooser.ExtensionFilter(
+                "All files (*.*)", "*.*");
+
+        fileChooser.getExtensionFilters().addAll(extensionTxtFilter, allFilesFilter);
+        return fileChooser;
     }
 }
 

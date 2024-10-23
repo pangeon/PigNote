@@ -38,14 +38,26 @@ public class Start extends Application {
     }
 
     private MenuBar createMenu() {
+        final Menu menuFile = getMenuFile();
+
+        final Menu menuOptions = new Menu("Options");
+        final Menu menuHelp = new Menu("Help");
+
+        final MenuBar menuBar = new MenuBar();
+        menuBar.getMenus().addAll(menuFile, menuOptions, menuHelp);
+
+        return menuBar;
+    }
+
+    private Menu getMenuFile() {
         final Menu menuFile = new Menu("File");
         MenuItem[] menuItems = {
-                new MenuItem("New"),
+                new MenuItem("Clear"),
                 new MenuItem("Open"),
-                new MenuItem("Save")
+                new MenuItem("Save as")
         };
         menuItems[0].setOnAction(actionEvent -> {
-            controller.newFile();
+            controller.resetFile();
         });
         menuItems[1].setOnAction(actionEvent -> {
             try {
@@ -61,14 +73,21 @@ public class Start extends Application {
                 throw new RuntimeException(e);
             }
         });
+        menuItems[2].setOnAction(actionEvent -> {
+            try {
+                controller.saveTextAreaToFile();
+            } catch (FileNotFoundException e) {
+                System.out.println("FileNotFoundException");
+                throw new RuntimeException(e);
+            } catch (SecurityException e) {
+                System.out.println("SecurityException");
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                System.out.println("IOException");
+                throw new RuntimeException(e);
+            }
+        });
         menuFile.getItems().addAll(menuItems);
-
-        final Menu menuOptions = new Menu("Options");
-        final Menu menuHelp = new Menu("Help");
-
-        final MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(menuFile, menuOptions, menuHelp);
-
-        return menuBar;
+        return menuFile;
     }
 }
