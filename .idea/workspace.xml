@@ -5,10 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a085ae7-e458-4961-9731-0a8c500ca5e6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/cecherz/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/cecherz/GUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/cecherz/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/cecherz/Start.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/cecherz/TextStreamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/cecherz/TextStreamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PigNote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PigNote.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/null" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pl/cecherz/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cecherz/GUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pl/cecherz/GlobalConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cecherz/GlobalConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pl/cecherz/Pig_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pl/cecherz/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cecherz/Start.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pl/cecherz/TextStreamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cecherz/TextStreamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pl/cecherz/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,26 +51,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloWorld.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Start.executor&quot;: &quot;Run&quot;,
-    &quot;Application.pl.cecherz.Start.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ceche/IdeaProjects/PigNote/src/pl/cecherz&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/ceche/IdeaProjects/PigNote/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloWorld.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Start.executor": "Run",
+    "Application.pl.cecherz.Start.executor": "Run",
+    "Maven.PigNote [clean].executor": "Run",
+    "Maven.PigNote [compile].executor": "Run",
+    "Maven.PigNote [install].executor": "Run",
+    "Maven.PigNote [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.PigNote [validate].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ceche/IdeaProjects/PigNote/src/main/resources",
+    "onboarding.tips.debug.path": "C:/Users/ceche/IdeaProjects/PigNote/src/Main.java",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ceche\IdeaProjects\PigNote\src\main\resources" />
       <recent name="C:\Users\ceche\IdeaProjects\PigNote\src\pl\cecherz" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ceche\IdeaProjects\PigNote\src\main\resources" />
+      <recent name="C:\Users\ceche\IdeaProjects\PigNote\src\main\resources\css" />
+      <recent name="C:\Users\ceche\IdeaProjects\PigNote\src\main\resources\img" />
     </key>
   </component>
   <component name="RunManager">
