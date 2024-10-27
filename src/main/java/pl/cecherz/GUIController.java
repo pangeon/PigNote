@@ -38,6 +38,11 @@ public class GUIController {
         TextStreamController.saveFileContent(fileName, textContent);
     }
 
+    public void changeTextStyle(String cssStyle) {
+        textArea.getStylesheets().clear();
+        textArea.getStylesheets().add(cssStyle);
+    }
+
     private FileChooser getFileExtChooser() {
         FileChooser fileChooser = new FileChooser();
 

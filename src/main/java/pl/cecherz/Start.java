@@ -32,24 +32,29 @@ public class Start extends Application {
         borderPane.setCenter(controller.getTextArea());
 
         final Scene mainScene = new Scene(borderPane, 600.0, 700.0);
-        mainScene.getStylesheets().add(GlobalConstants.CSS_PATH);
+        mainScene.getStylesheets().add(GlobalConstants.CSS_STYLE_PATHS[0]);
         primaryStage.setScene(mainScene);
         primaryStage.show();
     }
 
     private MenuBar createMenu() {
-        final Menu menuFile = getMenuFile();
-
-        final Menu menuOptions = new Menu("Options");
-        final Menu menuHelp = new Menu("Help");
+        final Menu dropDowMenuFile = initMenuFile();
+        final Menu dropDowMenuFont = initMenuFont();
+        final Menu dropDowMenuStyle = initMenuStyle();
+        final Menu dropDowMenuHelp = initMenuHelp();
 
         final MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(menuFile, menuOptions, menuHelp);
+        menuBar.getMenus().addAll(
+                dropDowMenuFile,
+                dropDowMenuFont,
+                dropDowMenuStyle,
+                dropDowMenuHelp
+        );
 
         return menuBar;
     }
 
-    private Menu getMenuFile() {
+    private Menu initMenuFile() {
         final Menu menuFile = new Menu("File");
         MenuItem[] menuItems = {
                 new MenuItem("Clear"),
@@ -90,4 +95,42 @@ public class Start extends Application {
         menuFile.getItems().addAll(menuItems);
         return menuFile;
     }
+
+    public Menu initMenuStyle() {
+        final Menu menuStyle = new Menu("Style");
+        MenuItem[] menuItems = {
+                new MenuItem("default"),
+                new MenuItem("Neo"),
+                new MenuItem("Puppy"),
+                new MenuItem("Choco"),
+                new MenuItem("Metal Gear")
+        };
+        menuStyle.getItems().addAll(menuItems);
+
+        menuItems[0].setOnAction(_ -> controller.changeTextStyle(GlobalConstants.CSS_STYLE_PATHS[0]));
+        menuItems[1].setOnAction(_ -> controller.changeTextStyle(GlobalConstants.CSS_STYLE_PATHS[1]));
+        menuItems[2].setOnAction(_ -> controller.changeTextStyle(GlobalConstants.CSS_STYLE_PATHS[2]));
+        menuItems[3].setOnAction(_ -> controller.changeTextStyle(GlobalConstants.CSS_STYLE_PATHS[3]));
+        menuItems[4].setOnAction(_ -> controller.changeTextStyle(GlobalConstants.CSS_STYLE_PATHS[4]));
+        return menuStyle;
+    }
+
+    public Menu initMenuFont() {
+        final Menu menuFont = new Menu("Font");
+
+        // TODO: ADD IMPLEMENTATION
+
+        return menuFont;
+    }
+
+    public Menu initMenuHelp() {
+        final Menu menuHelp = new Menu("Help");
+
+        // TODO: ADD IMPLEMENTATION
+
+        return menuHelp;
+    }
+
+
+
 }

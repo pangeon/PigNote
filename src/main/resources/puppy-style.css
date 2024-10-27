@@ -1,0 +1,8 @@
+.text-area {
+    -fx-background-color: #884ea0;
+    -fx-control-inner-background: #884ea0;
+    -fx-text-fill: #fad7a0;
+}
+.text-area:focused .content {
+    -fx-background-color: #884ea0;
+}
