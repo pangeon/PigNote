@@ -38,9 +38,25 @@ public class GUIController {
         TextStreamController.saveFileContent(fileName, textContent);
     }
 
-    public void changeTextStyle(String cssStyle) {
+    public void changeTextAreaStyle(String cssStyle) {
         textArea.getStylesheets().clear();
         textArea.getStylesheets().add(cssStyle);
+    }
+
+    public void changeFontSize(boolean changeToBigger, int fontSize, int change) {
+        String defaultStyle = textArea.getStyle();
+
+        if (defaultStyle.contains("-fx-font-size:")) {
+            String fontSizeFromStyle = defaultStyle.replaceAll("[^0-9]", "");
+            fontSize = Integer.parseInt(fontSizeFromStyle);
+        }
+
+        if (changeToBigger) {
+            fontSize += change;
+        } else {
+            fontSize -= change;
+        }
+        textArea.setStyle("-fx-font-size: " + fontSize + "px;");
     }
 
     private FileChooser getFileExtChooser() {

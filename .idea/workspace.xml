@@ -5,15 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a085ae7-e458-4961-9731-0a8c500ca5e6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/choco-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/metal-gear-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/neo-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/puppy-style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PigNote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PigNote.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/cecherz/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cecherz/GUIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/cecherz/GlobalConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cecherz/GlobalConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/cecherz/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cecherz/Start.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/default-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cecherz/TextStreamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cecherz/TextStreamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Pig_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/Pig_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/choco-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/choco-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/default-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/default-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/metal-gear-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/metal-gear-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/neo-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/neo-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/puppy-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/puppy-style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +64,7 @@
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/ceche/IdeaProjects/PigNote/src/main/resources&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/ceche/IdeaProjects/PigNote/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
@@ -73,9 +76,9 @@
       <recent name="C:\Users\ceche\IdeaProjects\PigNote\src\pl\cecherz" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ceche\IdeaProjects\PigNote\src\main\resources" />
-      <recent name="C:\Users\ceche\IdeaProjects\PigNote\src\main\resources\css" />
       <recent name="C:\Users\ceche\IdeaProjects\PigNote\src\main\resources\img" />
+      <recent name="C:\Users\ceche\IdeaProjects\PigNote\src\main\resources\css" />
+      <recent name="C:\Users\ceche\IdeaProjects\PigNote\src\main\resources" />
     </key>
   </component>
   <component name="RunManager">

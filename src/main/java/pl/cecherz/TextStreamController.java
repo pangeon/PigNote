@@ -17,6 +17,7 @@ public class TextStreamController {
         reader.close();
         return fileContent.toString();
     }
+
     public static void saveFileContent(String fileName, String fileContent) throws IOException {
         FileWriter writer = new FileWriter(fileName);
         writer.write(fileContent);

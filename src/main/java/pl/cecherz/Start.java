@@ -32,7 +32,7 @@ public class Start extends Application {
         borderPane.setCenter(controller.getTextArea());
 
         final Scene mainScene = new Scene(borderPane, 600.0, 700.0);
-        mainScene.getStylesheets().add(GlobalConstants.CSS_STYLE_PATHS[0]);
+        mainScene.getStylesheets().add(GlobalConstants.TEXTAREA_STYLE[0]);
         primaryStage.setScene(mainScene);
         primaryStage.show();
     }
@@ -107,18 +107,33 @@ public class Start extends Application {
         };
         menuStyle.getItems().addAll(menuItems);
 
-        menuItems[0].setOnAction(_ -> controller.changeTextStyle(GlobalConstants.CSS_STYLE_PATHS[0]));
-        menuItems[1].setOnAction(_ -> controller.changeTextStyle(GlobalConstants.CSS_STYLE_PATHS[1]));
-        menuItems[2].setOnAction(_ -> controller.changeTextStyle(GlobalConstants.CSS_STYLE_PATHS[2]));
-        menuItems[3].setOnAction(_ -> controller.changeTextStyle(GlobalConstants.CSS_STYLE_PATHS[3]));
-        menuItems[4].setOnAction(_ -> controller.changeTextStyle(GlobalConstants.CSS_STYLE_PATHS[4]));
+        menuItems[0].setOnAction(_ -> controller.changeTextAreaStyle(GlobalConstants.TEXTAREA_STYLE[0]));
+        menuItems[1].setOnAction(_ -> controller.changeTextAreaStyle(GlobalConstants.TEXTAREA_STYLE[1]));
+        menuItems[2].setOnAction(_ -> controller.changeTextAreaStyle(GlobalConstants.TEXTAREA_STYLE[2]));
+        menuItems[3].setOnAction(_ -> controller.changeTextAreaStyle(GlobalConstants.TEXTAREA_STYLE[3]));
+        menuItems[4].setOnAction(_ -> controller.changeTextAreaStyle(GlobalConstants.TEXTAREA_STYLE[4]));
         return menuStyle;
     }
 
     public Menu initMenuFont() {
-        final Menu menuFont = new Menu("Font");
 
-        // TODO: ADD IMPLEMENTATION
+        final Menu menuFont = new Menu("Font");
+        MenuItem[] menuItems = {
+                new MenuItem("Bigger [+]"),
+                new MenuItem("Smaller [-]"),
+        };
+        menuItems[0].setOnAction(_ -> {
+            controller.changeFontSize(
+                    true,
+                    GlobalConstants.DEFAULT_FONT_SIZE,
+                    GlobalConstants.DEFAULT_CHANGES_FONT_JUMP);
+        });
+        menuItems[1].setOnAction(_ -> {
+            controller.changeFontSize(false,
+                    GlobalConstants.DEFAULT_FONT_SIZE,
+                    GlobalConstants.DEFAULT_CHANGES_FONT_JUMP);
+        });
+        menuFont.getItems().addAll(menuItems);
 
         return menuFont;
     }
