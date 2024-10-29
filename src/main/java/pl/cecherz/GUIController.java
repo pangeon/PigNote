@@ -1,10 +1,12 @@
 package pl.cecherz;
 
 import javafx.scene.control.TextArea;
+import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.List;
 
 public class GUIController {
     private static Stage stage;
@@ -57,6 +59,20 @@ public class GUIController {
             fontSize -= change;
         }
         textArea.setStyle("-fx-font-size: " + fontSize + "px;");
+    }
+
+    public void changeFontFamily(String fontName) {
+
+        // TODO: (fix it) method changeFontSize block changeFontFamily
+
+        Font defaultFont = textArea.getFont();
+        List<String> fontsCollections = Font.getFamilies();
+        if (fontsCollections.contains(fontName)) {
+            textArea.setFont(Font.font(fontName));
+        } else {
+            textArea.setFont(defaultFont);
+            System.out.println("Font is not installed in your system.");
+        }
     }
 
     private FileChooser getFileExtChooser() {

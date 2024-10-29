@@ -11,7 +11,13 @@ public record GlobalConstants() {
             "metal-gear-style.css"
     };
     public static final int DEFAULT_FONT_SIZE = 12;
-    public static final int DEFAULT_CHANGES_FONT_JUMP = 2;
+    public static final int DEFAULT_CHANGE_FONT_JUMP = 2;
+    public static final String[] FONT_FAMILIES = {
+            "System",
+            "Arial",
+            "DejaVu Sans Light",
+            "Source Sans Pro"
+    };
 }
 
 

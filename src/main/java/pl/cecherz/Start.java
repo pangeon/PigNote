@@ -111,28 +111,42 @@ public class Start extends Application {
         menuItems[1].setOnAction(_ -> controller.changeTextAreaStyle(GlobalConstants.TEXTAREA_STYLE[1]));
         menuItems[2].setOnAction(_ -> controller.changeTextAreaStyle(GlobalConstants.TEXTAREA_STYLE[2]));
         menuItems[3].setOnAction(_ -> controller.changeTextAreaStyle(GlobalConstants.TEXTAREA_STYLE[3]));
-        menuItems[4].setOnAction(_ -> controller.changeTextAreaStyle(GlobalConstants.TEXTAREA_STYLE[4]));
         return menuStyle;
     }
 
     public Menu initMenuFont() {
 
         final Menu menuFont = new Menu("Font");
+        final Menu dropDownFamilyMenu = new Menu("Family");
+
+        dropDownFamilyMenu.getItems().addAll(
+                new MenuItem(GlobalConstants.FONT_FAMILIES[0]),
+                new MenuItem(GlobalConstants.FONT_FAMILIES[1]),
+                new MenuItem(GlobalConstants.FONT_FAMILIES[2]),
+                new MenuItem(GlobalConstants.FONT_FAMILIES[3])
+        );
+
         MenuItem[] menuItems = {
                 new MenuItem("Bigger [+]"),
                 new MenuItem("Smaller [-]"),
+                dropDownFamilyMenu
         };
         menuItems[0].setOnAction(_ -> {
             controller.changeFontSize(
                     true,
                     GlobalConstants.DEFAULT_FONT_SIZE,
-                    GlobalConstants.DEFAULT_CHANGES_FONT_JUMP);
+                    GlobalConstants.DEFAULT_CHANGE_FONT_JUMP);
         });
         menuItems[1].setOnAction(_ -> {
             controller.changeFontSize(false,
                     GlobalConstants.DEFAULT_FONT_SIZE,
-                    GlobalConstants.DEFAULT_CHANGES_FONT_JUMP);
+                    GlobalConstants.DEFAULT_CHANGE_FONT_JUMP);
         });
+
+        dropDownFamilyMenu.getItems().get(0).setOnAction(_ -> controller.changeFontFamily(GlobalConstants.FONT_FAMILIES[0]));
+        dropDownFamilyMenu.getItems().get(1).setOnAction(_ -> controller.changeFontFamily(GlobalConstants.FONT_FAMILIES[1]));
+        dropDownFamilyMenu.getItems().get(2).setOnAction(_ -> controller.changeFontFamily(GlobalConstants.FONT_FAMILIES[2]));
+        dropDownFamilyMenu.getItems().get(3).setOnAction(_ -> controller.changeFontFamily(GlobalConstants.FONT_FAMILIES[3]));
         menuFont.getItems().addAll(menuItems);
 
         return menuFont;
