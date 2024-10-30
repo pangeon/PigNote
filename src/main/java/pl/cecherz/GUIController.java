@@ -45,34 +45,38 @@ public class GUIController {
         textArea.getStylesheets().add(cssStyle);
     }
 
-    public void changeFontSize(boolean changeToBigger, int fontSize, int change) {
-        String defaultStyle = textArea.getStyle();
-
-        if (defaultStyle.contains("-fx-font-size:")) {
-            String fontSizeFromStyle = defaultStyle.replaceAll("[^0-9]", "");
-            fontSize = Integer.parseInt(fontSizeFromStyle);
-        }
+    public void changeFontSize(boolean changeToBigger, int change) {
+        Font currentFont = textArea.getFont();
+        int currentFontSize = (int) currentFont.getSize();
 
         if (changeToBigger) {
-            fontSize += change;
+            currentFontSize += change;
         } else {
-            fontSize -= change;
+            currentFontSize -= change;
         }
-        textArea.setStyle("-fx-font-size: " + fontSize + "px;");
+        textArea.setFont(Font.font(currentFont.getFamily(), currentFontSize));
     }
 
     public void changeFontFamily(String fontName) {
-
-        // TODO: (fix it) method changeFontSize block changeFontFamily
-
-        Font defaultFont = textArea.getFont();
+        Font currentFont = textArea.getFont();
         List<String> fontsCollections = Font.getFamilies();
+
         if (fontsCollections.contains(fontName)) {
-            textArea.setFont(Font.font(fontName));
+            textArea.setFont(Font.font(fontName, currentFont.getSize()));
         } else {
-            textArea.setFont(defaultFont);
+            textArea.setFont(currentFont);
             System.out.println("Font is not installed in your system.");
         }
+    }
+
+    public void showHelp() {
+        textArea.setText(
+        """
+        PigNote
+        Author: Kamil Cecherz
+        2024.10
+        """
+        );
     }
 
     private FileChooser getFileExtChooser() {

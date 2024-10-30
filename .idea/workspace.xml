@@ -7,7 +7,6 @@
     <list default="true" id="4a085ae7-e458-4961-9731-0a8c500ca5e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/cecherz/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cecherz/GUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cecherz/GlobalConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cecherz/GlobalConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/cecherz/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cecherz/Start.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +27,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
