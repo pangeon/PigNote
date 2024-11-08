@@ -66,6 +66,7 @@ public class GUIController {
         } else {
             textArea.setFont(currentFont);
             System.out.println("Font is not installed in your system.");
+            Font.getFamilies().forEach(System.out::println);
         }
     }
 

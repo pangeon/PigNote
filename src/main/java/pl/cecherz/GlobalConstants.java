@@ -10,13 +10,16 @@ public record GlobalConstants() {
             "choco-style.css",
             "metal-gear-style.css"
     };
-    public static final int DEFAULT_FONT_SIZE = 12;
-    public static final int DEFAULT_CHANGE_FONT_JUMP = 2;
+    public static final int DEFAULT_CHANGE_FONT_JUMP = 1;
     public static final String[] FONT_FAMILIES = {
-            "System",
-            "Arial",
+            "Consolas",
+            "Constantia",
+            "Courier New",
             "DejaVu Sans Light",
-            "Source Sans Pro"
+            "Lucida Console",
+            "Segoe UI",
+            "Source Sans Pro",
+            "System",
     };
 }
 

@@ -12,7 +12,10 @@ import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.stream.IntStream;
+
+import static pl.cecherz.GlobalConstants.*;
 
 public class Start extends Application {
     private GUIController controller;
@@ -24,9 +27,9 @@ public class Start extends Application {
     @Override
     public void start(Stage primaryStage) {
         controller = new GUIController(primaryStage);
-        primaryStage.setTitle(GlobalConstants.APPLICATION_NAME);
+        primaryStage.setTitle(APPLICATION_NAME);
 
-        final Image image = new Image(GlobalConstants.ICON_PATH);
+        final Image image = new Image(ICON_PATH);
         primaryStage.getIcons().add(image);
 
         final BorderPane borderPane = new BorderPane();
@@ -34,7 +37,7 @@ public class Start extends Application {
         borderPane.setCenter(controller.getTextArea());
 
         final Scene mainScene = new Scene(borderPane, 600.0, 700.0);
-        mainScene.getStylesheets().add(GlobalConstants.TEXTAREA_STYLE[0]);
+        mainScene.getStylesheets().add(TEXTAREA_STYLE[0]);
         primaryStage.setScene(mainScene);
         primaryStage.show();
     }
@@ -98,17 +101,13 @@ public class Start extends Application {
 
     public Menu initMenuStyle() {
         final Menu menuStyle = new Menu("Style");
-        MenuItem[] menuItems = {
-                new MenuItem("default"),
-                new MenuItem("Neo"),
-                new MenuItem("Puppy"),
-                new MenuItem("Choco"),
-                new MenuItem("Metal Gear")
-        };
-        menuStyle.getItems().addAll(menuItems);
 
-        IntStream.range(0, GlobalConstants.TEXTAREA_STYLE.length).forEach(i -> menuItems[i]
-                        .setOnAction(_ -> controller.changeTextAreaStyle(GlobalConstants.TEXTAREA_STYLE[i])));
+        Arrays.stream(TEXTAREA_STYLE).map(s -> {
+            MenuItem menuItem = new MenuItem(Utils.extractName(s));
+            menuItem.setOnAction(_ -> controller.changeTextAreaStyle(s));
+            return menuItem;
+
+        }).forEach(menuStyle.getItems()::add);
 
         return menuStyle;
     }
@@ -117,12 +116,9 @@ public class Start extends Application {
         final Menu menuFont = new Menu("Font");
         final Menu dropDownFamilyMenu = new Menu("Family");
 
-        dropDownFamilyMenu.getItems().addAll(
-                new MenuItem(GlobalConstants.FONT_FAMILIES[0]),
-                new MenuItem(GlobalConstants.FONT_FAMILIES[1]),
-                new MenuItem(GlobalConstants.FONT_FAMILIES[2]),
-                new MenuItem(GlobalConstants.FONT_FAMILIES[3])
-        );
+        Arrays.stream(FONT_FAMILIES)
+                .map(MenuItem::new)
+                .forEach(dropDownFamilyMenu.getItems()::add);
 
         MenuItem[] menuItems = {
                 new MenuItem("Bigger [+]"),
@@ -132,15 +128,15 @@ public class Start extends Application {
         menuItems[0].setOnAction(_ -> {
             controller.changeFontSize(
                     true,
-                    GlobalConstants.DEFAULT_CHANGE_FONT_JUMP);
+                    DEFAULT_CHANGE_FONT_JUMP);
         });
         menuItems[1].setOnAction(_ -> {
             controller.changeFontSize(false,
-                    GlobalConstants.DEFAULT_CHANGE_FONT_JUMP);
+                    DEFAULT_CHANGE_FONT_JUMP);
         });
 
-        IntStream.range(0, GlobalConstants.FONT_FAMILIES.length).forEach(i -> dropDownFamilyMenu.getItems().get(i)
-                        .setOnAction(_ -> controller.changeFontFamily(GlobalConstants.FONT_FAMILIES[i])));
+        IntStream.range(0, FONT_FAMILIES.length).forEach(i -> dropDownFamilyMenu.getItems().get(i)
+                        .setOnAction(_ -> controller.changeFontFamily(FONT_FAMILIES[i])));
         menuFont.getItems().addAll(menuItems);
 
         return menuFont;
