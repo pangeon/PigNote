@@ -46,6 +46,7 @@ public class Start extends Application {
         final Menu dropDowMenuFile = initMenuFile();
         final Menu dropDowMenuFont = initMenuFont();
         final Menu dropDowMenuStyle = initMenuStyle();
+        final Menu dropDowMenuTools = initMenuTools();
         final Menu dropDowMenuHelp = initMenuHelp();
 
         final MenuBar menuBar = new MenuBar();
@@ -53,6 +54,7 @@ public class Start extends Application {
                 dropDowMenuFile,
                 dropDowMenuFont,
                 dropDowMenuStyle,
+                dropDowMenuTools,
                 dropDowMenuHelp
         );
 
@@ -137,9 +139,32 @@ public class Start extends Application {
 
         IntStream.range(0, FONT_FAMILIES.length).forEach(i -> dropDownFamilyMenu.getItems().get(i)
                         .setOnAction(_ -> controller.changeFontFamily(FONT_FAMILIES[i])));
+
         menuFont.getItems().addAll(menuItems);
 
         return menuFont;
+    }
+
+    public Menu initMenuTools() {
+        final Menu menuTools = new Menu("Tools");
+        final Menu dropDownSyntaxMenu = new Menu("Syntax");
+
+        Arrays.stream(PROGRAMMING_LANGUAGES)
+                .map(MenuItem::new)
+                .forEach(dropDownSyntaxMenu.getItems()::add);
+
+        MenuItem[] menuItems = {
+                dropDownSyntaxMenu,
+                new MenuItem("Numbered lines")
+        };
+
+        LanguageSyntax javaSyntax = new LanguageSyntax("Java", JAVA_KEYWORDS);
+        dropDownSyntaxMenu.getItems().getFirst().setOnAction(_ -> controller.changeLanguageSyntax(javaSyntax));
+
+
+        menuTools.getItems().addAll(menuItems);
+
+        return menuTools;
     }
 
     public Menu initMenuHelp() {

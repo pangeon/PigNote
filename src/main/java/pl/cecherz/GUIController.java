@@ -4,6 +4,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.fxmisc.richtext.InlineCssTextArea;
 
 import java.io.*;
 import java.util.List;
@@ -12,6 +13,7 @@ public class GUIController {
     private static Stage stage;
     private TextArea textArea = new TextArea();
     private FileChooser fileChooser = new FileChooser();
+    private InlineCssTextArea inlineTextArea;
 
     public GUIController(Stage stage) {
         GUIController.stage = stage;
@@ -19,6 +21,10 @@ public class GUIController {
 
     public TextArea getTextArea()  {
         return textArea;
+    }
+
+    public InlineCssTextArea getInlineTextArea() {
+        return inlineTextArea;
     }
 
     public void resetFile() {
@@ -67,6 +73,17 @@ public class GUIController {
             textArea.setFont(currentFont);
             System.out.println("Font is not installed in your system.");
             Font.getFamilies().forEach(System.out::println);
+        }
+    }
+
+    public void changeLanguageSyntax(LanguageSyntax languageSyntax) {
+        String textContent = textArea.getText();
+        String[] splittedTextContent = textContent.split("[\\W+]");
+
+        for (String keyword : splittedTextContent) {
+            if (languageSyntax.getKeywords().contains(keyword) && !keyword.isEmpty()) {
+                textArea.setStyle("-fx-font-weight: bold;");
+            }
         }
     }
 
