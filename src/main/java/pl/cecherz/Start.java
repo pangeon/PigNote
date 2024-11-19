@@ -19,6 +19,7 @@ import static pl.cecherz.GlobalConstants.*;
 
 public class Start extends Application {
     private GUIController controller;
+    private final BorderPane borderPane = new BorderPane();
 
     public static void main(String[] args) {
         launch(args);
@@ -32,7 +33,6 @@ public class Start extends Application {
         final Image image = new Image(ICON_PATH);
         primaryStage.getIcons().add(image);
 
-        final BorderPane borderPane = new BorderPane();
         borderPane.setTop(createMenu());
         borderPane.setCenter(controller.getTextArea());
 
@@ -46,6 +46,7 @@ public class Start extends Application {
         final Menu dropDowMenuFile = initMenuFile();
         final Menu dropDowMenuFont = initMenuFont();
         final Menu dropDowMenuStyle = initMenuStyle();
+        final Menu dropDowMenuTools = initMenuTools();
         final Menu dropDowMenuHelp = initMenuHelp();
 
         final MenuBar menuBar = new MenuBar();
@@ -53,6 +54,7 @@ public class Start extends Application {
                 dropDowMenuFile,
                 dropDowMenuFont,
                 dropDowMenuStyle,
+                dropDowMenuTools,
                 dropDowMenuHelp
         );
 
@@ -140,6 +142,18 @@ public class Start extends Application {
         menuFont.getItems().addAll(menuItems);
 
         return menuFont;
+    }
+
+    public Menu initMenuTools() {
+        final Menu menuHelp = new Menu("Syntax");
+        MenuItem[] menuItems = {
+                new MenuItem("On"),
+                new MenuItem("Off"),
+        };
+        menuHelp.getItems().addAll(menuItems);
+        menuItems[0].setOnAction(_ -> borderPane.setCenter(controller.enableSyntaxView()));
+        menuItems[1].setOnAction(_ -> borderPane.setCenter(controller.getTextArea()));
+        return menuHelp;
     }
 
     public Menu initMenuHelp() {

@@ -1,7 +1,10 @@
 package pl.cecherz;
 
 import javafx.scene.control.TextArea;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -12,6 +15,7 @@ public class GUIController {
     private static Stage stage;
     private TextArea textArea = new TextArea();
     private FileChooser fileChooser = new FileChooser();
+    private TextFlow textFlow = new TextFlow();
 
     public GUIController(Stage stage) {
         GUIController.stage = stage;
@@ -78,6 +82,25 @@ public class GUIController {
         2024.10
         """
         );
+    }
+
+    public TextFlow enableSyntaxView() {
+        TextFlow textFlow = new TextFlow();
+        String textAreaContent = textArea.getText();
+
+        String[] tokens = textAreaContent.split(" ");
+        for (String token: tokens) {
+            Text text;
+            if (token.matches("public|class|void")) {
+                text = new Text(token + " ");
+                text.setFill(Color.BLUE);
+            } else {
+                text = new Text(token + " ");
+                text.setFill(Color.BLACK);
+            }
+            textFlow.getChildren().add(text);
+        }
+        return textFlow;
     }
 
     private FileChooser getFileExtChooser() {
