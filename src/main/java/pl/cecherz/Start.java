@@ -33,6 +33,7 @@ public class Start extends Application {
         final Image image = new Image(ICON_PATH);
         primaryStage.getIcons().add(image);
 
+
         borderPane.setTop(createMenu());
         borderPane.setCenter(controller.getTextArea());
 
@@ -145,15 +146,32 @@ public class Start extends Application {
     }
 
     public Menu initMenuTools() {
-        final Menu menuHelp = new Menu("Syntax");
+        final Menu menuTools = new Menu("Mode");
+        final Menu dropDownSyntaxMenu = new Menu("Highlight");
+
+        Arrays.stream(PROGRAMMING_LANGUAGES)
+                .map(MenuItem::new)
+                .forEach(dropDownSyntaxMenu.getItems()::add);
+
         MenuItem[] menuItems = {
-                new MenuItem("On"),
-                new MenuItem("Off"),
+                new MenuItem("Text editor"),
+                dropDownSyntaxMenu,
         };
-        menuHelp.getItems().addAll(menuItems);
-        menuItems[0].setOnAction(_ -> borderPane.setCenter(controller.enableSyntaxView()));
-        menuItems[1].setOnAction(_ -> borderPane.setCenter(controller.getTextArea()));
-        return menuHelp;
+        menuItems[0].setOnAction(_ -> borderPane.setCenter(controller.getTextArea()));
+
+        dropDownSyntaxMenu.getItems().getFirst().setOnAction(_ ->
+                borderPane.setCenter(controller.enableSyntaxView(JAVA_KEYWORDS))
+        );
+        dropDownSyntaxMenu.getItems().get(1).setOnAction(_ ->
+                borderPane.setCenter(controller.enableSyntaxView(JAVASCRIPT_KEYWORDS))
+        );
+        dropDownSyntaxMenu.getItems().get(2).setOnAction(_ ->
+                borderPane.setCenter(controller.enableSyntaxView(PHP_KEYWORDS))
+        );
+
+        menuTools.getItems().addAll(menuItems);
+
+        return menuTools;
     }
 
     public Menu initMenuHelp() {

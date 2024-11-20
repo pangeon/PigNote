@@ -1,5 +1,6 @@
 package pl.cecherz;
 
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -10,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.List;
+import java.util.Set;
 
 public class GUIController {
     private static Stage stage;
@@ -84,24 +86,28 @@ public class GUIController {
         );
     }
 
-    public TextFlow enableSyntaxView() {
+    public ScrollPane enableSyntaxView(Set<String> languageKeywords) {
         TextFlow textFlow = new TextFlow();
+        ScrollPane scrollPane = new ScrollPane(textFlow);
+        scrollPane.setFitToWidth(true);
         String textAreaContent = textArea.getText();
 
         String[] tokens = textAreaContent.split(" ");
         for (String token: tokens) {
             Text text;
-            if (token.matches("public|class|void")) {
+            if (token.matches(String.join("|", languageKeywords))) {
                 text = new Text(token + " ");
                 text.setFill(Color.BLUE);
+                text.setStyle("-fx-font-weight: bold");
             } else {
                 text = new Text(token + " ");
                 text.setFill(Color.BLACK);
             }
             textFlow.getChildren().add(text);
         }
-        return textFlow;
+        return scrollPane;
     }
+
 
     private FileChooser getFileExtChooser() {
         FileChooser fileChooser = new FileChooser();
