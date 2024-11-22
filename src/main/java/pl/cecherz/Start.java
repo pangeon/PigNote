@@ -19,6 +19,7 @@ import static pl.cecherz.GlobalConstants.*;
 
 public class Start extends Application {
     private GUIController controller;
+    private final BorderPane borderPane = new BorderPane();
 
     public static void main(String[] args) {
         launch(args);
@@ -32,7 +33,7 @@ public class Start extends Application {
         final Image image = new Image(ICON_PATH);
         primaryStage.getIcons().add(image);
 
-        final BorderPane borderPane = new BorderPane();
+
         borderPane.setTop(createMenu());
         borderPane.setCenter(controller.getTextArea());
 
@@ -46,6 +47,7 @@ public class Start extends Application {
         final Menu dropDowMenuFile = initMenuFile();
         final Menu dropDowMenuFont = initMenuFont();
         final Menu dropDowMenuStyle = initMenuStyle();
+        final Menu dropDowMenuTools = initMenuTools();
         final Menu dropDowMenuHelp = initMenuHelp();
 
         final MenuBar menuBar = new MenuBar();
@@ -53,6 +55,7 @@ public class Start extends Application {
                 dropDowMenuFile,
                 dropDowMenuFont,
                 dropDowMenuStyle,
+                dropDowMenuTools,
                 dropDowMenuHelp
         );
 
@@ -140,6 +143,35 @@ public class Start extends Application {
         menuFont.getItems().addAll(menuItems);
 
         return menuFont;
+    }
+
+    public Menu initMenuTools() {
+        final Menu menuTools = new Menu("Mode");
+        final Menu dropDownSyntaxMenu = new Menu("Highlight");
+
+        Arrays.stream(PROGRAMMING_LANGUAGES)
+                .map(MenuItem::new)
+                .forEach(dropDownSyntaxMenu.getItems()::add);
+
+        MenuItem[] menuItems = {
+                new MenuItem("Text editor"),
+                dropDownSyntaxMenu,
+        };
+        menuItems[0].setOnAction(_ -> borderPane.setCenter(controller.getTextArea()));
+
+        dropDownSyntaxMenu.getItems().getFirst().setOnAction(_ ->
+                borderPane.setCenter(controller.enableSyntaxView(JAVA_KEYWORDS))
+        );
+        dropDownSyntaxMenu.getItems().get(1).setOnAction(_ ->
+                borderPane.setCenter(controller.enableSyntaxView(JAVASCRIPT_KEYWORDS))
+        );
+        dropDownSyntaxMenu.getItems().get(2).setOnAction(_ ->
+                borderPane.setCenter(controller.enableSyntaxView(PHP_KEYWORDS))
+        );
+
+        menuTools.getItems().addAll(menuItems);
+
+        return menuTools;
     }
 
     public Menu initMenuHelp() {

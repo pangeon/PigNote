@@ -1,17 +1,23 @@
 package pl.cecherz;
 
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.List;
+import java.util.Set;
 
 public class GUIController {
     private static Stage stage;
     private TextArea textArea = new TextArea();
     private FileChooser fileChooser = new FileChooser();
+    private TextFlow textFlow = new TextFlow();
 
     public GUIController(Stage stage) {
         GUIController.stage = stage;
@@ -79,6 +85,29 @@ public class GUIController {
         """
         );
     }
+
+    public ScrollPane enableSyntaxView(Set<String> languageKeywords) {
+        TextFlow textFlow = new TextFlow();
+        ScrollPane scrollPane = new ScrollPane(textFlow);
+        scrollPane.setFitToWidth(true);
+        String textAreaContent = textArea.getText();
+
+        String[] tokens = textAreaContent.split(" ");
+        for (String token: tokens) {
+            Text text;
+            if (token.matches(String.join("|", languageKeywords))) {
+                text = new Text(token + " ");
+                text.setFill(Color.BLUE);
+                text.setStyle("-fx-font-weight: bold");
+            } else {
+                text = new Text(token + " ");
+                text.setFill(Color.BLACK);
+            }
+            textFlow.getChildren().add(text);
+        }
+        return scrollPane;
+    }
+
 
     private FileChooser getFileExtChooser() {
         FileChooser fileChooser = new FileChooser();
